@@ -1,0 +1,18 @@
+function TestRun(N,k,d=2)
+    As=[random_unitary(N) for i in 1:d]
+    Ns=make_test_normals(d,k)
+    c=calc_commuting_dilation_const(As,Ns)
+    println(c)
+    return(c)
+end
+
+
+
+# RunExperiment: can be called with N, d, k, m as arguments
+function RunExperiment(N,k,m,d=2)
+
+    for i in 1:m
+        println("Trial $i:")
+        TestRun(N, k, d)
+    end
+end
